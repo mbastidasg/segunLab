@@ -1,120 +1,120 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package becker;
 
-package clase3;
-import java.util.*;
+import becker.robots.*;
 
-/**
- *
- * @author Lina Velasquez
- */
-
-
-public class Arreglos {
-    
-public static void main(String[] args) {
-        // TODO code application logic here
-        Scanner flujoEnt = new Scanner (System.in);
-        // declarar varibles
-        
-       double Patrimonio;
-       double [][] Matriz = new double [10] [6] ;
-        
-        
-       
-       double RentaLiquida = 0;
-       
-       int Nombre, NumCred ;
-       double ValorPagar, ValorMatricula;
-    int ka = 0;
-      while ( ka < 10 ) {
-                
-        
-          
-          
-        System.out.println("Codigo del estudiante:");
-        Nombre = flujoEnt.nextInt();
-          
-        Matriz [ ka ] [ 0 ] = Nombre;
-        
-        System.out.println("Numero de creditos a cursar:");
-        NumCred = flujoEnt.nextInt();
-        
-        Matriz [ ka ] [ 3 ] = NumCred;
-        
-        System.out.println("Patrimonio:");
-        Patrimonio = flujoEnt.nextDouble();
-        
-        Matriz [ ka ] [ 2 ] = Patrimonio;
-       
-        System.out.println("Renta Liquida: ");
-        RentaLiquida = flujoEnt.nextDouble();
-        
-        Matriz [ ka  ] [ 1 ] = RentaLiquida;
-        
-        ValorPagar = CalcularCred ( Patrimonio, RentaLiquida );
-        System.out.println("Codigo: " + Nombre + " Pago:  " + ValorPagar);
-        
-        Matriz [ ka ] [ 4 ] = ValorPagar ;
-        
-        ValorMatricula = CalcularMatricula (ValorPagar, NumCred); 
-        System.out.println ("Codigo: " + Nombre + " Valor Matricula: " + ValorMatricula ); 
-        
-        Matriz [ ka ] [ 5 ] = ValorMatricula ;
-        
-        for ( int i = 0 ; i < 10 ; i++ ){
-           
-            for ( int j = 0; j < 6; j ++){
-                 System.out.println( i + "," + j + "[" + Matriz [i] [j] + "]");
-            } 
-        }
-        
-        int ke = 0;
-         System.out.println("Si desea inscribir otro estudiante presione ´2 ´, para salir presione ´1 ´ : ");
-        ke = flujoEnt.nextInt();
-        
-        if (ke == 2){
-            ka  ++;
-            
-        }
-        else {
-            System.out.println("Gracias.");
-            ka = 15;
-        }
-            
-        }
-        
-        
- } 
-   public static double CalcularCred (double Patrimonio, double RentaLiquida ){
-   double ValorCredito ;
-       if (RentaLiquida < 25000 && Patrimonio < 100000){
-      
-           ValorCredito = 130;
-           return ValorCredito ;
-       }
-        
-        else if ( RentaLiquida > 25000 && RentaLiquida < 30000 && Patrimonio > 100000 && Patrimonio < 150000) {
-        
-            ValorCredito = 200;
-            return ValorCredito ;
-          }
-       
-        else {
-             ValorCredito = 280;
-            return ValorCredito ;
-        }
+public class DeliverParcel
+{
+   public static void main(String[] args)
+   {  
+     // Set up the initial situation
+      City parque = new City();
+      Thing espacio = new Thing(parque, 1, 2);
+      Robot karel = new Robot(parque, 1, 0, Direction.EAST,5);
      
+      // estacionamiento
+      for (int iw = 0; iw++ < 9; iw ++){
+      Wall pe =
+               new Wall (parque, iw, 2, Direction.WEST ) ;
+      Wall pe1 =
+               new Wall (parque, iw, 2, Direction.NORTH) ;
+      Wall pe2 =
+               new Wall (parque, iw, 2, Direction.SOUTH ) ;
+      }
+      
+      // parqueadero1
+       for (int i = 0; i < 10; i++){               
+    Wall p1 =
+               new Wall (parque, i, 1, Direction.WEST ) ;
+    Wall p3 =
+               new Wall (parque, i, 3, Direction.EAST ) ;
+       }
+      
+       for (int j = 1; j < 4; j++){               
+    Wall p2 =
+               new Wall (parque, 0, j, Direction.NORTH ) ;
+       }
+       
+       // parqueadero2
+         for (int ie = 0; ie < 10; ie++){               
+    Wall p4 =
+               new Wall (parque, ie, 5, Direction.WEST ) ;
+    Wall p6 =
+               new Wall (parque, ie, 7, Direction.EAST ) ;
+       }
+      
+       for (int je = 5; je < 8; je++){               
+    Wall p5 =
+               new Wall (parque, 0, je, Direction.NORTH ) ;
+       }
+              
+       for (int iw = 0; iw++ < 9; iw ++){
+      Wall pe =
+               new Wall (parque, iw, 6, Direction.WEST ) ;
+      Wall pe1 =
+               new Wall (parque, iw, 6, Direction.NORTH) ;
+      Wall pe2 =
+               new Wall (parque, iw, 6, Direction.SOUTH ) ;
+      }
+       
+       
+        // parqueadero3
+        for (int iq = 0; iq < 10; iq++){               
+    Wall p1 =
+               new Wall (parque, iq, 9, Direction.WEST ) ;
+    Wall p3 =
+               new Wall (parque, iq, 11, Direction.EAST ) ;
+       }
+      
+       for (int jq = 9; jq < 12; jq++){               
+    Wall p2 =
+               new Wall (parque, 0, jq, Direction.NORTH ) ;
+       }
+             
+       
+       for (int iw = 0; iw++ < 9; iw ++){
+      Wall pe6 =
+               new Wall (parque, iw, 10, Direction.EAST ) ;
+      Wall pe7 =
+               new Wall (parque, iw, 10, Direction.NORTH) ;
+      Wall pe8 =
+               new Wall (parque, iw, 10, Direction.SOUTH ) ;
+      }       
+       
+       // zona temporal
+       
+       for (int ig = 13; ig < 22; ig++){               
+    Wall pw =
+               new Wall (parque, 5, ig, Direction.NORTH ) ;   
+       }
+      
+       for (int jy = 5; jy < 8; jy++){               
+    Wall peh =
+               new Wall (parque, jy, 13, Direction.WEST ) ;
+    Wall peh2 =
+               new Wall (parque, jy, 21, Direction.EAST ) ;
+       }        
+       
+       for (int iw = 13; iw++ < 20; iw ++){
+      Wall pee =
+               new Wall (parque, 6, iw, Direction.EAST ) ;
+      Wall pee1 =
+               new Wall (parque, 6, iw, Direction.NORTH) ;
+      Wall pee2 =
+               new Wall (parque, 6, iw, Direction.WEST ) ;
+      }
+//       
+    
+      // Direct the robot to the final situation
+      karel.move();
+      karel.move();
+      karel.pickThing();
+      karel.move();
+      karel.turnLeft();	// start turning right as three turn lefts
+      karel.turnLeft();
+      karel.turnLeft();	// finished turning right
+      karel.move();
+     // karel.putThing();
+      karel.move();
+      System.out.println(karel.countThingsInBackpack());
    }
-   
-    public static double CalcularMatricula (double ValorCredito, int NumCred ){
-        // VARIABLE TOTAL COSTO DE TODOS LOS CREDITOS 
-        double VALOR2;
-              VALOR2  = ValorCredito * NumCred ;
-        return VALOR2;
-        
-    }
 }
