@@ -48,19 +48,30 @@ public Producto Pedido ( ){
     return productos;    
 }
 
-public Producto Estadisticas (  ){
-    int indice = 0, aux= 0;
-    Producto productos = null;
-    for (int k = 0; k < 4 ; k++){
-        if (this.productos[k].getDisponible()!= cantidad){
-            aux= this.productos[k].getDisponible()- cantidad;
-            
-        } 
+ public void Estadisticas() {
+        int indice = 0, aux = 0, aux1 = 50;
+        Producto productos = null;
+        for (int k = 0; k < 4; k++) {
+            if (this.productos[k].getDisponible() != cantidad) {
+                aux = this.productos[k].getDisponible() - cantidad;
+                if (aux < aux1) {
+                    aux1 = aux;
+                    indice = k;
+                }
+            }
+        }
+        System.out.println("El mas vendido fue:" + this.productos[indice]);
 
-// menos disponiblidad es el mas vendido. cada vez que se venda se resta
-   // a disponiblidad 
-}
+        for (int b = 0; b < 4; b++) {
+            if (this.productos[b].getDisponible() != cantidad) {
+                aux = this.productos[b].getDisponible() - cantidad;
+                if (aux > aux1) {
+                    aux1 = aux;
+                    indice = b;
+                }
+            }
+        }
+        System.out.println("El menos vendido fue:" + this.productos[indice]);
 
-
-}
+    }
 }
