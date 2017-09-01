@@ -66,7 +66,23 @@ public class Tienda {
            System.out.println("El menos vendido es:"+productos[aux]);
     }
     
-public double prom ();
+public void prom (){
+    double productoVendido = 0.0;
+    double ventas = 0.0;
+    double aux2 = 0.0;
+     for (int i = 0; i < 4; i++) {
+       productoVendido += productos[i].getVendidos();
+       ventas += productos[i].vender(cantidadProduc);
+       
+       
+                 
+        
+    }
+     aux2 = ventas/productoVendido;
+    System.out.println("El promedio de ventas es:" + aux2 );
+}
+
+
     public void AgregarPro(int numProducto, String nombre, String tipo, int disponible, double precio, int min) {
         productos[numProducto] = new Producto(nombre, tipo, disponible, precio, min);
     }
