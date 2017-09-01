@@ -41,7 +41,7 @@ public class Tiendita{
         tienda.AgregarPro(0, "pan", "supermercado", 30, 10000, 5);
         tienda.AgregarPro(1, "dolex", "drogeria", 60, 1000, 10);
         tienda.AgregarPro(2, "lapiz", "papeleria", 100, 100000, 15);
-        tienda.AgregarPro(3, "pan", "supermercado", 30, 10000, 5);
+        tienda.AgregarPro(3, "borrador", "papeleria", 30, 10000, 5);
         Scanner hola = new Scanner (System.in);
         double PrecioF, TotalV= 0;
         int Vendidos = 0;
