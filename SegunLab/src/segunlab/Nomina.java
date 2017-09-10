@@ -11,13 +11,18 @@ package segunlab;
  */
 public class Nomina {
    
-    private Empleado[] empleado;
+     
     private double salario;
     private double horasTotales;
     
+    int n = 7;
+    
+    Empleado[] empleado = new Empleado[n];
+    
 
+    
     public Nomina( double salario, double horasTotales) {
-        this.empleado = new Empleado[7];
+        
         this.salario = salario;
         this.horasTotales= horasTotales;
        
@@ -46,8 +51,16 @@ public class Nomina {
        return aux;
     }
     
-           
-
+    
+    public void AgregarE (int numEm, String nombre, Double horasT, int fest){
+       
+            empleado [numEm] = new Empleado (nombre, horasT, fest);
+            
+            System.out.println("agregado con exito");
+        }
+        
+        
+    
     
     public double calcularSalario ( String nombre1) { 
         double aux2 = 0.0, horasT = 0.0, Recargo= 0.0;
@@ -59,9 +72,10 @@ public class Nomina {
                  
                 aux2 = (this.salario * horasT / this.horasTotales) + (this.recargoFestivo(salario,  aux2) * Recargo);
                 System.out.println(aux2);
+                j=10;
    }else{
                 System.out.println("El empleado no se encuentra registrado");}
-            
+                j=10;
             }   return 0;
             
 }
@@ -69,3 +83,4 @@ public class Nomina {
      
     
 }
+
