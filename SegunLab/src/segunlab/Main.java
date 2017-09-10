@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,17 +25,21 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int opcion = 0, continuar =1;
                 int ju = 0, ja =0, ji= 0;
+                 
+                nomina.AgregarE( ju , "lina", 106.0, 2);
+       
+          inven.AgregarP(ja, "vino", 6, "09.09" , 2000);
+          inven.AgregarPv(ji, "PastaM", 200000, "13.09" , false);
         
         while(continuar == 1){
+            
+            
             System.out.println("Preione 1 para agreagar empleado.\n" + "Presione 2 para sacar nomina"+ "Presione 3 para agregar producot\n"+"Presione 4 para vender producto\n"+ "Presione 5 para agregar proveedor \n"+"Preione 6 para ver ventas, costos y gastos\n"+"Preione 7 para ver prodcutos\n"+ "Presine 8 para ver proveedores:\n");
             opcion = in.nextInt();
             
         
         
-          nomina.AgregarE( ju , "lina", 106.0, 2);
-       
-          inven.AgregarP(ja, "vino", 6, "09.09" , 2000);
-          inven.AgregarPv(ji, "PastaM", 200000, "13.09" , false);
+         
           
             switch (opcion) {
                 case 1:
@@ -78,13 +81,14 @@ public class Main {
                     String nombrePr = in.next();
                     System.out.println("Ingrese la cantidad de unidades vendidas de este producto:");
                     int cuantos = in.nextInt();
-                    for (int y = 0; y< inven.getCantidad1(); y++){
-                        if (inven.productos[y].getNombreProd()==nombrePr){
+                    for (int y = 0; y< ja+1; y++){
+                        System.out.println("aui");
+                        if (inven.productos[y].getNombreProd().equals(nombrePr)){
                             System.out.println("El precio de su compra es: " + inven.productos[y].vender(cuantos));
                         }
                     }
                     inven.proxVencerp();
-                    inven.facturaVencer();
+                    
                     break;
                 case 5:
                     
@@ -117,12 +121,13 @@ public class Main {
 //                } 
                  break;
                 case 7:
-                    for ( int fd= 0; fd < ja; fd++){
+                    for ( int fd= 0; fd < ja+1; fd++){
+                        
                         System.out.println("Nombre:\n "+ inven.productos[fd].getNombreProd() + "fecha de vencimiento: \n"+ inven.productos[fd].getFecha() + "Discponible:\n"  + inven.productos[fd].getCantidad()+ "Precio Unidad:\n"+ inven.productos[fd].getPrecio()); 
                     }
                     break;
                 case 8:
-                    for ( int fd= 0; fd < ji; fd++){
+                    for ( int fd= 0; fd < ji+1; fd++){
                         System.out.println("Nombre: \n" + inven.proveedores[fd].getNombreProveedor() + "Fecha de pago:\n" + inven.proveedores[fd].getPlazo()+ "Deuda " + inven.proveedores[fd].getDeuda() + "cancelado:"+ inven.proveedores[fd].isCalceldado());
                     }
                     break;
@@ -137,3 +142,4 @@ public class Main {
     }
     }
 }
+
