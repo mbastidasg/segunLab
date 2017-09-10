@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,8 +10,11 @@ package segunlab;
  * @author MARIAJOSE
  */
 public class Inventario {
-    Producto[] productos;
-    Proveedor [] proveedores;
+    
+    int n1= 7;
+    Producto[] productos= new Producto [n1];
+    int n = 7;
+    Proveedor [] proveedores= new Proveedor [n];
     FechaHora fecha1;
    
     private int cantidad1;
@@ -75,11 +77,14 @@ public class Inventario {
                   String aux1  = this.proveedores[i].getPlazo();
              fecha2 = Float.parseFloat(aux1);;
              float fu;
-             String fd = fecha1.Fecha();
+             String fd = this.fecha1.Fecha();
              fu = Float.parseFloat(fd);
              for (int h =0; h< 20; h++){
          if ((fu-fecha2 )< 1){
              System.out.println("la fecha limite vencera en un dia" + proveedores[h].getNombreProveedor()); 
+         }
+         else{
+             
          }
           }  
         }
@@ -87,13 +92,13 @@ public class Inventario {
         
         public void AgregarP ( int numP, String nombre, int cantidad, String fecha, double precio){
        
-            productos [numP] = new Producto ( nombre, cantidad, fecha, precio);
+            this.productos [numP] = new Producto ( nombre, cantidad, fecha, precio);
             System.out.println("agregado con exito");
         }
         
        public void AgregarPv (int numPv, String nombreProveedor, double deuda, String plazo, boolean cancelado){
            
-           proveedores [numPv] = new Proveedor (nombreProveedor, deuda, plazo,cancelado);
+           this.proveedores [numPv] = new Proveedor (nombreProveedor, deuda, plazo,cancelado);
        }
        
        
@@ -111,3 +116,4 @@ public class Inventario {
 //              }
     
 }
+
