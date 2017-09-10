@@ -11,12 +11,25 @@ package segunlab;
  */
 public class Proveedor {
     private String nombreProveedor;
-    private int deuda;
-    private int plazo;
+    private double deuda;
+    private boolean calceldado;
+      
+    private String plazo;
 
-    public Proveedor(String nombreProveedor, int deuda, int plazo) {
+    public boolean isCalceldado() {
+        return calceldado;
+    }
+
+    public void setCalceldado(boolean calceldado) {
+        this.calceldado = calceldado;
+    }
+    
+    
+
+    public Proveedor(String nombreProveedor, double deuda, String plazo, boolean cancelado) {
         this.nombreProveedor = nombreProveedor;
         this.deuda = deuda;
+        this.calceldado= cancelado;
         this.plazo = plazo;
     }
 
@@ -24,25 +37,22 @@ public class Proveedor {
         return nombreProveedor;
     }
 
-    public int getDeuda() {
+    public double getDeuda() {
         return deuda;
     }
 
-    public int getPlazo() {
+    public String getPlazo() {
         return plazo;
     }
 
-    public void setDeuda(int deuda) {
+    public void setDeuda(double deuda) {
         this.deuda = deuda;
     }
 
-    public void setPlazo(int plazo) {
+    public void setPlazo(String plazo) {
         this.plazo = plazo;
     }
     
-    public void facturaVencer (){
-        for (int i = 0; i < this.plazo; i++) {
-            
-        }
-    }
+    
+    
 }
